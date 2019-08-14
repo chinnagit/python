@@ -1,0 +1,211 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This generates swagger file products catalog rest apis",
+    "version" : "v1",
+    "title" : "Swagger Maven Plugin"
+  },
+  "host" : "localhost:8082/gateway-oauth-resource/productservice",
+  "tags" : [ {
+    "name" : "products",
+    "description" : "catallog information"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/products" : {
+      "get" : {
+        "tags" : [ "products" ],
+        "summary" : "Find all products",
+        "description" : "Returns all catalog products",
+        "operationId" : "findAll",
+        "produces" : [ "application/xml", "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Product"
+              }
+            }
+          },
+          "400" : {
+            "description" : "No products found"
+          },
+          "404" : {
+            "description" : "no Products path found"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "products" ],
+        "summary" : "Upadte the product",
+        "description" : "Returns product ",
+        "operationId" : "updateProduct",
+        "produces" : [ "application/xml", "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Product"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Product"
+            }
+          },
+          "400" : {
+            "description" : "no prodcut found"
+          },
+          "404" : {
+            "description" : "no prodcut found"
+          }
+        }
+      }
+    },
+    "/products/category/{category}" : {
+      "get" : {
+        "tags" : [ "products" ],
+        "summary" : "Find products by by category",
+        "description" : "Returns products by by category or nonstring will simulate API error conditions",
+        "operationId" : "findByCatefory",
+        "produces" : [ "application/xml", "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Product"
+            }
+          },
+          "400" : {
+            "description" : "Invalid category name supplied"
+          },
+          "404" : {
+            "description" : "Product not found"
+          }
+        }
+      }
+    },
+    "/products/company" : {
+      "get" : {
+        "tags" : [ "products" ],
+        "summary" : "Find all companies",
+        "description" : "Returns all companies ",
+        "operationId" : "findAllCompanies",
+        "produces" : [ "application/xml", "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Company"
+            }
+          },
+          "400" : {
+            "description" : "no companies found"
+          },
+          "404" : {
+            "description" : "company not found"
+          }
+        }
+      }
+    },
+    "/products/{name}" : {
+      "get" : {
+        "tags" : [ "products" ],
+        "summary" : "Find product by name",
+        "description" : "Returns product by name or non string will simulate API error conditions",
+        "operationId" : "findByName",
+        "produces" : [ "application/xml", "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Product"
+            }
+          },
+          "400" : {
+            "description" : "Invalid name supplied"
+          },
+          "404" : {
+            "description" : "Product not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Company" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "products" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Product"
+          }
+        },
+        "contact" : {
+          "$ref" : "#/definitions/Contact"
+        }
+      }
+    },
+    "Contact" : {
+      "type" : "object",
+      "properties" : {
+        "address" : {
+          "type" : "string"
+        },
+        "phone" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Product" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "category" : {
+          "type" : "string"
+        },
+        "price" : {
+          "type" : "number"
+        },
+        "description" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

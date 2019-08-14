@@ -1,0 +1,101 @@
+{
+  "schemas":
+  ["urn:ietf:params:scim:schemas:core:2.0:User",
+    "urn:symantec:scim:schemas:extension:symantec:2.0:User"],
+  "id": "2819c223-7f76-453a-919d-413861904646",
+  "externalId": "701984",
+  "userName": "bjensen",
+  "name": {
+    "formatted": "Ms. Barbara J Jensen, III",
+    "familyName": "Jensen",
+    "givenName": "Barbara",
+    "middleName": "Jane",
+    "honorificPrefix": "Ms.",
+    "honorificSuffix": "III"
+  },
+  "displayName": "Babs Jensen",
+  "nickName": "Babs",
+  "profileUrl": "https://login.example.com/bjensen",
+  "title": "Tour Guide",
+  "userType": "Employee",
+  "preferredLanguage": "en-US",
+  "locale": "en-US",
+  "timezone": "America/Los_Angeles",
+  "active": true,
+  "emails": [
+    {
+      "primary": true,
+      "value": "bjensen@example.com",
+      "type": "work"
+    },
+    {
+      "primary": false,
+      "value": "babs@jensen.org",
+      "type": "home"
+    }
+  ],
+  "phoneNumbers": [
+    {
+      "primary": false,
+      "value": "555-555-5555",
+      "type": "work"
+    },
+    {
+      "primary": false,
+      "value": "555-555-4444",
+      "type": "mobile"
+    }
+  ],
+  "addresses": [
+    {
+      "primary": true,
+      "type": "work",
+      "formatted": "100 Universal City Plaza\nHollywood, CA 91608 USA",
+      "streetAddress": "100 Universal City Plaza",
+      "locality": "Hollywood",
+      "region": "CA",
+      "postalCode": "91608",
+      "country": "USA"
+    },
+    {
+      "primary": false,
+      "type": "home",
+      "formatted": "456 Hollywood Blvd\nHollywood, CA 91608 USA",
+      "streetAddress": "456 Hollywood Blvd",
+      "locality": "Hollywood",
+      "region": "CA",
+      "postalCode": "91608",
+      "country": "USA"
+    }
+  ],
+  "groups": [
+    {
+      "display": "Tour Guides",
+      "value": "e9e30dba-f08f-4109-8486-d5c6a331660a",
+      "$ref": "../Groups/e9e30dba-f08f-4109-8486-d5c6a331660a"
+    },
+    {
+      "display": "Employees",
+      "value": "fc348aa8-3835-40eb-a20b-c726e15c55b5",
+      "$ref": "../Groups/fc348aa8-3835-40eb-a20b-c726e15c55b5"
+    },
+    {
+      "display": "US Employees",
+      "value": "71ddacd2-a8e7-49b8-a5db-ae50d0a5bfd7",
+      "$ref": "../Groups/71ddacd2-a8e7-49b8-a5db-ae50d0a5bfd7"
+    }
+  ],
+  "urn:symantec:scim:schemas:extension:symantec:2.0:User": {
+    "domains": [
+      {
+        "primary": false,
+        "domainId": "symantecdomain1"
+      }
+    ],
+    "identityProvider":
+    {
+        "id": "internal",
+        "accountId" : "1234"
+    }
+  }
+}
